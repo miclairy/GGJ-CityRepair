@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharControl : MonoBehaviour
 {
 	private Rigidbody2D ridgidBody;
+	public bool hit;
 
 	// Start is called before the first frame update
 	void Start()
@@ -18,4 +19,9 @@ public class CharControl : MonoBehaviour
 		var horz = Input.GetAxis("Horizontal");
 		ridgidBody.velocity = new Vector2(horz * 10, ridgidBody.velocity.y);
     }
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		hit = true;
+	}
 }
